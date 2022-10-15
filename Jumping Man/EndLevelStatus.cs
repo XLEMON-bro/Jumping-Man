@@ -1,8 +1,11 @@
 ﻿namespace Jumping_Man
 {
-    internal enum EndLevelStatus
+    public enum EndLevelStatus
     {
-        Win = 0,
-        Death = 1
+        Death = 0,
+        OneStar = 1,
+        TwoStars = 2,
+        ThreeStars = 3,
+        Win = 4
     }
 }

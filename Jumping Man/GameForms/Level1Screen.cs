@@ -83,10 +83,12 @@ namespace Jumping_Man.GameForms
             if (e.KeyCode == Keys.Left)
             {
                 goLeft = false;
+                Player.Image = GameResources.HeroWaitReverse;
             }
             if (e.KeyCode == Keys.Right)
             {
                 goRight = false;
+                Player.Image = GameResources.HeroWait;
             }
             if (goUp)
             {
@@ -100,11 +102,14 @@ namespace Jumping_Man.GameForms
             {
                 gameWin.Play();
 
+                Thread.Sleep(1500);
+
                 this.MainForm.level1Passed = true;
 
                 Level1Timer.Stop();
-                MessageBox.Show($"Congratulations, you beat the level with a score of {score} !");
-                this.Hide();
+
+                this.MainForm.Controls.Clear();
+                this.MainForm.Controls.Add(new EndLevelScreen(MainForm, MenuControl, GetLevelResult(score)));
             }
 
             Player.Top += jumpSpeed;
@@ -156,7 +161,8 @@ namespace Jumping_Man.GameForms
                     {
                         if(Player.Top > i.Top)
                         {
-                            this.MainForm.Close();
+                            this.MainForm.Controls.Clear();
+                            this.MainForm.Controls.Add(new EndLevelScreen(MainForm,MenuControl,EndLevelStatus.Death));
                         }
                     }
                 }
@@ -190,6 +196,20 @@ namespace Jumping_Man.GameForms
                     }
                 }
             }
+        }
+
+        private EndLevelStatus GetLevelResult(int score)
+        {
+            if (score == 0)
+                return EndLevelStatus.Win;
+
+            if (score < 5)
+                return EndLevelStatus.OneStar;
+
+            if (score < 10)
+                return EndLevelStatus.TwoStars;
+
+            return EndLevelStatus.ThreeStars;
         }
     }
 }
