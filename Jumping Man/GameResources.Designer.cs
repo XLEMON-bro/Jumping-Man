@@ -133,6 +133,26 @@ namespace Jumping_Man {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BearWait {
+            get {
+                object obj = ResourceManager.GetObject("BearWait", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BearWaitReverse {
+            get {
+                object obj = ResourceManager.GetObject("BearWaitReverse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Bush {
             get {
                 object obj = ResourceManager.GetObject("Bush", resourceCulture);

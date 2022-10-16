@@ -20,6 +20,9 @@ namespace Jumping_Man.GameForms
         SoundPlayer coinCollect = new SoundPlayer();
         SoundPlayer jump = new SoundPlayer();
 
+        bool bearWait = false;
+        bool bearGoLeft = true;
+        bool bearGoRight = false;
         bool goLeft = false;
         bool goRight = false;
         bool goUp = false;
@@ -28,6 +31,10 @@ namespace Jumping_Man.GameForms
         int force = 10;
         int maxForce = 10;
         int score = 0;
+
+        int bearSpeed = 3;
+        int bearTeritoryLeft;
+        int bearTeritoryRight;
         public Level3Screen()
         {
             InitializeComponent();
@@ -41,6 +48,8 @@ namespace Jumping_Man.GameForms
             gameWin.Stream = GameResources.gameWin;
             coinCollect.Stream = GameResources.coinCollect;
             jump.Stream = GameResources.jump;
+            bearTeritoryLeft = BearTeritory.Location.X - 10;
+            bearTeritoryRight = bearTeritoryLeft + BearTeritory.Width - Bear1Enemy.Width - 10;
         }
 
         private EndLevelStatus GetLevelResult(int score)
@@ -51,7 +60,7 @@ namespace Jumping_Man.GameForms
             if (score < 3)
                 return EndLevelStatus.OneStar;
 
-            if (score < 5)
+            if (score < 11)
                 return EndLevelStatus.TwoStars;
 
             return EndLevelStatus.ThreeStars;
@@ -95,14 +104,14 @@ namespace Jumping_Man.GameForms
 
             if (goUp)
             {
-                jumpSpeed = -12;
+                jumpSpeed = -14;
                 force -= 1;
                 if (FlyPowerLabel.Text.Length > 0)
                     FlyPowerLabel.Text = FlyPowerLabel.Text.Remove(0);
             }
             else
             {
-                jumpSpeed = 6;
+                jumpSpeed = 7;
             }
 
             foreach (Control i in this.Controls)
@@ -180,6 +189,18 @@ namespace Jumping_Man.GameForms
                     }
                 }
 
+                if (i is PictureBox && i.Tag == "enemyBear")
+                {
+                    BearAI(i as PictureBox, Player);
+
+                    if (Player.Bounds.IntersectsWith(i.Bounds))
+                    {
+                        this.MainForm.Controls.Clear();
+                        this.MainForm.Controls.Add(new EndLevelScreen(MainForm, MenuControl, EndLevelStatus.Death));
+                        Level3Timer.Stop();
+                    }
+                }
+
                 if (i is PictureBox && i.Tag == "trap")
                 {
                     if (Player.Bounds.IntersectsWith(i.Bounds))
@@ -253,6 +274,49 @@ namespace Jumping_Man.GameForms
             if (goUp)
             {
                 goUp = false;
+            }
+        }
+
+        private void BearAI(PictureBox bear, Control player)
+        {
+            if(Math.Abs(bear.Location.X - player.Location.X) < 450 && Math.Abs(bear.Location.Y - player.Location.Y) < 12 && bear.Location.X < bearTeritoryRight && bear.Location.X > bearTeritoryLeft)
+            {
+                if (bear.Location.X < player.Location.X && bear.Location.X < bearTeritoryRight -4)
+                {
+                    if (!bearGoRight) 
+                    { 
+                        bear.Image = GameResources.Bear;
+                    }
+                    bearGoRight = true;
+                    bearGoLeft = false;
+                    bearWait = false;
+                    bear.Left += bearSpeed;
+                }
+                if (bear.Location.X > player.Location.X && bear.Location.X > bearTeritoryLeft + 4)
+                {
+                    if (!bearGoLeft)
+                    {
+                        bear.Image = GameResources.BearReverse;
+                    }
+                    bearGoLeft = true;
+                    bearGoRight = false;
+                    bearWait = false;
+                    bear.Left -= bearSpeed;
+                }
+            }
+            else
+            {
+                if (bearGoRight && !bearWait)
+                {
+                    bear.Image = GameResources.BearWait;
+                    bearWait = true;
+                }
+
+                if (bearGoLeft && !bearWait)
+                {
+                    bear.Image = GameResources.BearWaitReverse;
+                    bearWait = true;
+                }
             }
         }
 

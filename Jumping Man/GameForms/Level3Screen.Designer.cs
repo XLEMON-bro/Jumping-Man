@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.Level3Timer = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.BearTeritory = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -72,8 +72,9 @@
             this.pictureBox34 = new System.Windows.Forms.PictureBox();
             this.RightWallPtBox = new System.Windows.Forms.PictureBox();
             this.LeftWallPtBox = new System.Windows.Forms.PictureBox();
+            this.Bear1Enemy = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BearTeritory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -111,6 +112,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RightWallPtBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LeftWallPtBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Bear1Enemy)).BeginInit();
             this.SuspendLayout();
             // 
             // Level3Timer
@@ -131,17 +133,17 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Tag = "floor";
             // 
-            // pictureBox2
+            // BearTeritory
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = global::Jumping_Man.GameResources.WinterGrass;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(29, 554);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(687, 38);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Tag = "floor";
+            this.BearTeritory.BackColor = System.Drawing.Color.Transparent;
+            this.BearTeritory.BackgroundImage = global::Jumping_Man.GameResources.WinterGrass;
+            this.BearTeritory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BearTeritory.Location = new System.Drawing.Point(29, 554);
+            this.BearTeritory.Name = "BearTeritory";
+            this.BearTeritory.Size = new System.Drawing.Size(687, 38);
+            this.BearTeritory.TabIndex = 1;
+            this.BearTeritory.TabStop = false;
+            this.BearTeritory.Tag = "floor";
             // 
             // pictureBox3
             // 
@@ -220,7 +222,7 @@
             this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox8.BackgroundImage = global::Jumping_Man.GameResources.WinterGrass;
             this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox8.Location = new System.Drawing.Point(1332, 501);
+            this.pictureBox8.Location = new System.Drawing.Point(1295, 501);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(91, 38);
             this.pictureBox8.TabIndex = 40;
@@ -315,7 +317,7 @@
             this.Player.BackColor = System.Drawing.Color.Transparent;
             this.Player.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Player.Image = global::Jumping_Man.GameResources.Hero;
-            this.Player.Location = new System.Drawing.Point(32, 812);
+            this.Player.Location = new System.Drawing.Point(56, 802);
             this.Player.Name = "Player";
             this.Player.Size = new System.Drawing.Size(34, 49);
             this.Player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -327,7 +329,7 @@
             // 
             this.pictureBox16.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox16.Image = global::Jumping_Man.GameResources.CoinAnimated;
-            this.pictureBox16.Location = new System.Drawing.Point(629, 470);
+            this.pictureBox16.Location = new System.Drawing.Point(630, 443);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(31, 30);
             this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -617,6 +619,18 @@
             this.LeftWallPtBox.TabStop = false;
             this.LeftWallPtBox.Tag = "leftWall";
             // 
+            // Bear1Enemy
+            // 
+            this.Bear1Enemy.BackColor = System.Drawing.Color.Transparent;
+            this.Bear1Enemy.Image = global::Jumping_Man.GameResources.BearWait;
+            this.Bear1Enemy.Location = new System.Drawing.Point(44, 501);
+            this.Bear1Enemy.Name = "Bear1Enemy";
+            this.Bear1Enemy.Size = new System.Drawing.Size(65, 54);
+            this.Bear1Enemy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Bear1Enemy.TabIndex = 75;
+            this.Bear1Enemy.TabStop = false;
+            this.Bear1Enemy.Tag = "enemyBear";
+            // 
             // Level3Screen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -624,6 +638,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.BackgroundImage = global::Jumping_Man.GameResources.Level3Backgraound_1920x1080;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.Bear1Enemy);
             this.Controls.Add(this.LeftWallPtBox);
             this.Controls.Add(this.RightWallPtBox);
             this.Controls.Add(this.pictureBox34);
@@ -660,7 +675,7 @@
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.BearTeritory);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox15);
             this.Controls.Add(this.SkpikeUpperLvl);
@@ -672,7 +687,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BearTeritory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -710,6 +725,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RightWallPtBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LeftWallPtBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Bear1Enemy)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -719,7 +735,7 @@
 
         private System.Windows.Forms.Timer Level3Timer;
         private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
+        private PictureBox BearTeritory;
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
         private PictureBox pictureBox5;
@@ -760,5 +776,6 @@
         private PictureBox pictureBox34;
         private PictureBox RightWallPtBox;
         private PictureBox LeftWallPtBox;
+        private PictureBox Bear1Enemy;
     }
 }

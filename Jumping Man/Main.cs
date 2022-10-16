@@ -5,8 +5,8 @@ namespace Jumping_Man
 {
     public partial class MainForm : Form
     {
-        public bool level1Passed = true;
-        public bool level2Passed = true;
+        public bool level1Passed = false;
+        public bool level2Passed = false;
         public bool level3Passed = false;
         private bool musicIsPlayed = false;
         SoundPlayer BackgroungMusic = new SoundPlayer();
