@@ -14,6 +14,9 @@ namespace Jumping_Man.GameForms
     {
         private Control MenuControl;
         private MainForm MainForm;
+        private Level1Screen level1;
+        private Level2Screen level2;
+        private Level3Screen level3;
 
         public LevelScreen()
         {
@@ -29,6 +32,9 @@ namespace Jumping_Man.GameForms
         {
             this.MainForm = MainForm; 
             this.MenuControl = MainMenuForm;
+            level1 = new Level1Screen(this.MainForm, this.MenuControl);
+            level2 = new Level2Screen(this.MainForm, this.MenuControl);
+            level3 = new Level3Screen(this.MainForm, this.MenuControl);
         }
 
         private void BackButton_Click(object sender, EventArgs e)
@@ -39,18 +45,26 @@ namespace Jumping_Man.GameForms
 
         private void Level1Button_Click(object sender, EventArgs e)
         {
+            level1?.Dispose();
+            level1 = new Level1Screen(this.MainForm, this.MenuControl);
             this.MainForm.Controls.Clear();
-            this.MainForm.Controls.Add(new Level1Screen(this.MainForm, this.MenuControl));
+            this.MainForm.Controls.Add(level1);
         }
 
         private void Level2Button_Click(object sender, EventArgs e)
         {
-
+            level2?.Dispose();
+            level2 = new Level2Screen(this.MainForm, this.MenuControl);
+            this.MainForm.Controls.Clear();
+            this.MainForm.Controls.Add(level2);
         }
 
         private void Level3Button_Click(object sender, EventArgs e)
         {
-
+            level3?.Dispose();
+            level3 = new Level3Screen(this.MainForm, this.MenuControl);
+            this.MainForm.Controls.Clear();
+            this.MainForm.Controls.Add(level3);
         }
 
         private void LevelsScreenTimer_Tick(object sender, EventArgs e)

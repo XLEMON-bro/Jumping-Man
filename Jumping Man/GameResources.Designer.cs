@@ -528,9 +528,9 @@ namespace Jumping_Man {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Spike_Up {
+        internal static System.Drawing.Bitmap SpikeUp {
             get {
-                object obj = ResourceManager.GetObject("Spike_Up", resourceCulture);
+                object obj = ResourceManager.GetObject("SpikeUp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

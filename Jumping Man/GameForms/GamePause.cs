@@ -12,7 +12,7 @@ namespace Jumping_Man.GameForms
 {
     public partial class GamePause : UserControl
     {
-        private readonly Level1Screen level1Screen;
+        private readonly Control levelScreen;
         private readonly Control MenuControl;
         private readonly MainForm MainForm;
 
@@ -20,9 +20,9 @@ namespace Jumping_Man.GameForms
         {
             InitializeComponent();
         }
-        public GamePause(Level1Screen level1, MainForm mainForm, Control menuControl) :this()
+        public GamePause(Control level, MainForm mainForm, Control menuControl) :this()
         {
-            level1Screen = level1;
+            levelScreen = level;
             MainForm = mainForm;
             MenuControl = menuControl;
         }
@@ -36,7 +36,7 @@ namespace Jumping_Man.GameForms
         private void BacktoGameButton_Click(object sender, EventArgs e)
         {
             this.MainForm.Controls.Clear();
-            this.MainForm.Controls.Add(level1Screen);
+            this.MainForm.Controls.Add(levelScreen);
         }
     }
 }

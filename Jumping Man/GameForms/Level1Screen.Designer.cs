@@ -433,7 +433,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe Print", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(17, 53);
+            this.label1.Location = new System.Drawing.Point(7, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 40);
             this.label1.TabIndex = 28;
@@ -445,7 +445,7 @@
             this.FlyPowerLabel.BackColor = System.Drawing.Color.Transparent;
             this.FlyPowerLabel.Font = new System.Drawing.Font("Segoe Print", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.FlyPowerLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.FlyPowerLabel.Location = new System.Drawing.Point(104, 53);
+            this.FlyPowerLabel.Location = new System.Drawing.Point(88, 65);
             this.FlyPowerLabel.Name = "FlyPowerLabel";
             this.FlyPowerLabel.Size = new System.Drawing.Size(82, 40);
             this.FlyPowerLabel.TabIndex = 29;
@@ -488,6 +488,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Jumping_Man.GameResources.Level2Background1920x1080;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.FlyPowerLabel);
             this.Controls.Add(this.pictureBox25);
             this.Controls.Add(this.RightWallPtBox);
             this.Controls.Add(this.LeftWallPtBox);
@@ -520,7 +521,6 @@
             this.Controls.Add(this.GroundPictureBox);
             this.Controls.Add(this.scoreDisplay);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.FlyPowerLabel);
             this.DoubleBuffered = true;
             this.Name = "Level1Screen";
             this.Size = new System.Drawing.Size(1502, 913);

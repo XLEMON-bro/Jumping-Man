@@ -112,7 +112,11 @@ namespace Jumping_Man.GameForms
                 this.MainForm.Controls.Add(new EndLevelScreen(MainForm, MenuControl, GetLevelResult(score)));
             }
 
-            Player.Top += jumpSpeed;
+            if(jumpSpeed != 0)
+            {
+                Player.Top += jumpSpeed;
+            }
+
             if (goUp && force < 0)
             {
                 goUp = false;
@@ -130,14 +134,14 @@ namespace Jumping_Man.GameForms
 
             if (goUp)
             {
-                jumpSpeed = -16;
+                jumpSpeed = -14;
                 force -= 1;
                 if(FlyPowerLabel.Text.Length > 0)
                     FlyPowerLabel.Text = FlyPowerLabel.Text.Remove(0);
             }
             else
             {
-                jumpSpeed = 8;
+                jumpSpeed = 7;
             }
 
             foreach (Control i in this.Controls)
@@ -146,6 +150,7 @@ namespace Jumping_Man.GameForms
                 {
                     if (Player.Bounds.IntersectsWith(i.Bounds) && !goUp)
                     {
+                        jumpSpeed = 0;
                         if(force < maxForce) 
                         { 
                             force += 2;
@@ -190,7 +195,7 @@ namespace Jumping_Man.GameForms
                     {
                         this.Controls.Remove(i);
                         score++;
-                        scoreDisplay.Text = "Score: " + (score).ToString();
+                        scoreDisplay.Text = ": " + (score).ToString();
 
                         coinCollect.Play();
                     }
