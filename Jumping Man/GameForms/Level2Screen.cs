@@ -20,6 +20,7 @@ namespace Jumping_Man.GameForms
         SoundPlayer coinCollect = new SoundPlayer();
         SoundPlayer jump = new SoundPlayer();
 
+        bool chestOpen = false;
         bool goLeft = false;
         bool goRight = false;
         bool goUp = false;
@@ -113,7 +114,12 @@ namespace Jumping_Man.GameForms
 
         private void Timer(object sender, EventArgs e)
         {
-            if (Player.Bounds.IntersectsWith(ChestPtBox.Bounds))
+            if(score == 12 && !chestOpen)
+            {
+                ChestPtBox.BackgroundImage = GameResources.ChestInterface1;
+                chestOpen = true;
+            }
+            if (chestOpen && Player.Bounds.IntersectsWith(ChestPtBox.Bounds))
             {
                 gameWin.Play();
 

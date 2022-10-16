@@ -20,6 +20,7 @@ namespace Jumping_Man.GameForms
         SoundPlayer coinCollect = new SoundPlayer();
         SoundPlayer jump = new SoundPlayer();
 
+        bool chestOpen = false;
         bool bearWait = false;
         bool bearGoLeft = true;
         bool bearGoRight = false;
@@ -68,8 +69,17 @@ namespace Jumping_Man.GameForms
 
         private void TimerTickLevel3(object sender, EventArgs e)
         {
-            if (Player.Bounds.IntersectsWith(ChestPtBox.Bounds))
+
+            if(score == 15 && !chestOpen)
             {
+                ChestPtBox.BackgroundImage = GameResources.ChestInterface2;
+                chestOpen = true;
+            }
+
+            if (chestOpen && Player.Bounds.IntersectsWith(ChestPtBox.Bounds))
+            {
+                ChestPtBox.BackgroundImage = GameResources.ChestInterface2;
+                
                 gameWin.Play();
 
                 Thread.Sleep(1500);
@@ -104,14 +114,14 @@ namespace Jumping_Man.GameForms
 
             if (goUp)
             {
-                jumpSpeed = -14;
+                jumpSpeed = -12;
                 force -= 1;
                 if (FlyPowerLabel.Text.Length > 0)
                     FlyPowerLabel.Text = FlyPowerLabel.Text.Remove(0);
             }
             else
             {
-                jumpSpeed = 7;
+                jumpSpeed = 6;
             }
 
             foreach (Control i in this.Controls)
